@@ -1,0 +1,19 @@
+{
+  "name": "swc-loader",
+  "version": "0.1.0",
+  "description": "Webpack plugin for swc",
+  "main": "src/index.js",
+  "repository": "https://github.com/swc-project/swc-loader",
+  "author": "강동윤 <kdy1@outlook.kr>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "webpack": "^4.28.3"
+  },
+  "peerDependencies": {
+    "webpack": ">=2"
+  },
+  "dependencies": {
+    "swc": "^1.0.0-alpha.16"
+  }
+}
