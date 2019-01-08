@@ -10,3 +10,4 @@ function makeLoader() {
 }
 
 module.exports = makeLoader();
+module.exports.custom = makeLoader;
