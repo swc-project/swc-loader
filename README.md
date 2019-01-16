@@ -4,7 +4,7 @@ This package allows transpiling JavaScript files using swc and webpack.
 
 ## Installation
 ```sh
-npm install -D swc-loader webpack
+npm i --save-dev swc-loader webpack
 ```
 
 
@@ -21,6 +21,31 @@ module: {
       }
     }
   ]
+}
+```
 
+
+You can pass options to the loader by using the option property.
+
+```js
+
+module: {
+  rules: [
+    {
+      test: /\.ts$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'swc-loader',
+        options: {
+          jsc: {
+            parser: {
+              syntax: "typescript"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
 
 ```
