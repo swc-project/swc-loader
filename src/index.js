@@ -5,6 +5,7 @@ function makeLoader() {
     return function (source, inputSourceMap) {
         // Make the loader async
         const callback = this.async();
+        const filename = this.resourcePath;
 
         let loaderOptions = loaderUtils.getOptions(this) || {};
 
