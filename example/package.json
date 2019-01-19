@@ -1,0 +1,20 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack && cp public/* build",
+    "start": "ecstatic build --port 3000"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "ecstatic": "^3.3.0",
+    "swc": "^1.0.0-beta.20",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  }
+}
