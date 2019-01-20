@@ -18,6 +18,10 @@ module.exports = {
           loader: require.resolve('..'),  // you would put swc-loader
           options: {
             jsc: {
+              parser: {
+                syntax: "ecmascript",
+                jsx: true,
+              },
               transform: {
                 react: {
                   pragma: 'React.createElement',

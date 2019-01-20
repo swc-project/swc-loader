@@ -8,11 +8,11 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "swc": "^1.0.0-beta.20",
+    "swc": "^1.0.0-beta.21",
     "webpack": "^4.28.3"
   },
   "peerDependencies": {
-    "swc": "^1.0.0-beta.20",
+    "swc": "^1.0.0-beta.21",
     "webpack": ">=2"
   },
   "dependencies": {
