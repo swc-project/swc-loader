@@ -5,6 +5,7 @@ function makeLoader() {
     return function (source, inputSourceMap) {
         // Make the loader async
         const callback = this.async();
+        const filename = this.resourcePath;
 
         let loaderOptions = loaderUtils.getOptions(this) || {};
 
@@ -57,7 +58,7 @@ function makeLoader() {
 
         try {
             const output = swc.transformSync(source, programmaticOptions);
-            callback(null, [output.code, output.map])
+            callback(null, output.code, output.map)
         } catch (e) {
             callback(e)
         }

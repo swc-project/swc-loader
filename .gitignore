@@ -1,3 +1,4 @@
 node_modules/
+example/build
 package-lock.json
 *.log
