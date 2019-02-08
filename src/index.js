@@ -56,8 +56,11 @@ function makeLoader() {
         }
 
         try {
-            const output = swc.transformSync(source, programmaticOptions);
-            callback(null, output.code, output.map)
+            swc.transform(source, programmaticOptions).then((output) => {
+                callback(null, output.code, output.map)
+            }, (err) => {
+                callback(err)
+            });
         } catch (e) {
             callback(e)
         }
