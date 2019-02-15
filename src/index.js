@@ -1,5 +1,5 @@
 const loaderUtils = require('loader-utils');
-const swc = require('swc');
+const swc = require('@swc/core');
 
 function makeLoader() {
     return function (source, inputSourceMap) {
