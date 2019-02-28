@@ -4,7 +4,7 @@ This package allows transpiling JavaScript files using swc and webpack.
 
 ## Installation
 ```sh
-npm i --save-dev swc swc-loader webpack
+npm i --save-dev @swc/core swc-loader webpack
 ```
 
 
