@@ -22,6 +22,10 @@ function makeLoader() {
             delete loaderOptions.sourceMap;
         }
 
+        if (inputSourceMap) {
+            inputSourceMap = JSON.stringify(inputSourceMap);
+        }
+
         const programmaticOptions = Object.assign({}, loaderOptions, {
             filename,
             inputSourceMap: inputSourceMap || undefined,
