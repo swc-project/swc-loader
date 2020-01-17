@@ -1,21 +1,21 @@
 {
-  "name": "swc-loader",
-  "version": "0.1.6",
-  "description": "Webpack plugin for swc",
-  "main": "src/index.js",
-  "repository": "https://github.com/swc-project/swc-loader",
-  "author": "강동윤 <kdy1@outlook.kr>",
-  "license": "MIT",
-  "private": false,
-  "devDependencies": {
-    "@swc/core": "^1.0.29",
-    "webpack": "^4.28.3"
-  },
-  "peerDependencies": {
-    "@swc/core": "^1.0.29",
-    "webpack": ">=2"
-  },
-  "dependencies": {
-    "loader-utils": "^1.2.3"
-  }
+    "name": "swc-loader",
+    "version": "0.1.6",
+    "description": "Webpack plugin for swc",
+    "main": "src/index.js",
+    "repository": "https://github.com/swc-project/swc-loader",
+    "author": "강동윤 <kdy1@outlook.kr>",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "@swc/core": "^1.0.29",
+        "webpack": "^4.28.3"
+    },
+    "peerDependencies": {
+        "@swc/core": "^1.0.29",
+        "webpack": ">=2"
+    },
+    "dependencies": {
+        "loader-utils": "^1.2.3"
+    }
 }
