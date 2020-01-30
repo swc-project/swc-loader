@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = {
     mode: "development",
-    entry: path.join(__dirname, "index.js"),
+    entry: path.join(__dirname, "src", "index.js"),
     output: {
         path: path.join(__dirname, "build"),
         filename: "bundle.js"
@@ -18,7 +18,6 @@ module.exports = {
                     loader: require.resolve(".."), // you would put swc-loader
                     options: {
                         jsc: {
-                            target: "es2015",
                             parser: {
                                 syntax: "ecmascript",
                                 jsx: true
@@ -32,9 +31,6 @@ module.exports = {
                                     useBuiltins: false
                                 }
                             }
-                        },
-                        module: {
-                            type: "commonjs"
                         }
                     }
                 }

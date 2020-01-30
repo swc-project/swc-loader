@@ -12,7 +12,6 @@
         "react-dom": "^16.7.0"
     },
     "devDependencies": {
-        "@swc/core": "^1.1.16",
         "ecstatic": "^3.3.0",
         "webpack": "^4.28.4",
         "webpack-cli": "^3.2.1"

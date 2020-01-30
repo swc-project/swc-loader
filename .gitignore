@@ -1,5 +1,5 @@
 node_modules/
-example/build
+build/
 package-lock.json
 *.log
 yarn.lock
