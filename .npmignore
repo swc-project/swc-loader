@@ -3,4 +3,5 @@ example/build
 package-lock.json
 *.log
 yarn.lock
-example/
+example-config/
+example-src-dir/
