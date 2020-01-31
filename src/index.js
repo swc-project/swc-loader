@@ -1,8 +1,8 @@
-const loaderUtils = require('loader-utils');
-const swc = require('@swc/core');
+const loaderUtils = require("loader-utils");
+const swc = require("@swc/core");
 
 function makeLoader() {
-    return function (source, inputSourceMap) {
+    return function(source, inputSourceMap) {
         // Make the loader async
         const callback = this.async();
         const filename = this.resourcePath;
@@ -17,7 +17,7 @@ function makeLoader() {
             !Object.prototype.hasOwnProperty.call(loaderOptions, "sourceMaps")
         ) {
             loaderOptions = Object.assign({}, loaderOptions, {
-                sourceMaps: loaderOptions.sourceMap,
+                sourceMaps: loaderOptions.sourceMap
             });
             delete loaderOptions.sourceMap;
         }
@@ -40,9 +40,11 @@ function makeLoader() {
             // Ensure that Webpack will get a full absolute path in the sourcemap
             // so that it can properly map the module back to its internal cached
             // modules.
-            sourceFileName: filename,
+            sourceFileName: filename
         });
+        const sync = programmaticOptions.sync;
         // Remove loader related options
+        delete programmaticOptions.sync;
         delete programmaticOptions.customize;
         delete programmaticOptions.cacheDirectory;
         delete programmaticOptions.cacheIdentifier;
@@ -60,13 +62,21 @@ function makeLoader() {
         }
 
         try {
-            swc.transform(source, programmaticOptions).then((output) => {
-                callback(null, output.code, output.map)
-            }, (err) => {
-                callback(err)
-            });
+            if (sync) {
+                const output = swc.transformSync(source, programmaticOptions);
+                callback(null, output.code, output.map);
+            } else {
+                swc.transform(source, programmaticOptions).then(
+                    output => {
+                        callback(null, output.code, output.map);
+                    },
+                    err => {
+                        callback(err);
+                    }
+                );
+            }
         } catch (e) {
-            callback(e)
+            callback(e);
         }
     };
 }

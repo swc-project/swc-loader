@@ -5,3 +5,4 @@ package-lock.json
 yarn.lock
 example-config/
 example-src-dir/
+example-sync/
