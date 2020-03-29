@@ -42,6 +42,9 @@ function makeLoader() {
             // modules.
             sourceFileName: filename
         });
+        if (!programmaticOptions.inputSourceMap) {
+            delete programmaticOptions.inputSourceMap;
+        }
         const sync = programmaticOptions.sync;
         // Remove loader related options
         delete programmaticOptions.sync;
