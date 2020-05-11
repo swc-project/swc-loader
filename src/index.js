@@ -51,6 +51,7 @@ function makeLoader() {
 
         // Remove loader related options
         delete programmaticOptions.sync;
+        delete programmaticOptions.parseMap;
         delete programmaticOptions.customize;
         delete programmaticOptions.cacheDirectory;
         delete programmaticOptions.cacheIdentifier;
