@@ -45,9 +45,13 @@ function makeLoader() {
         if (!programmaticOptions.inputSourceMap) {
             delete programmaticOptions.inputSourceMap;
         }
+
         const sync = programmaticOptions.sync;
+        const parseMap = programmaticOptions.parseMap;
+
         // Remove loader related options
         delete programmaticOptions.sync;
+        delete programmaticOptions.parseMap;
         delete programmaticOptions.customize;
         delete programmaticOptions.cacheDirectory;
         delete programmaticOptions.cacheIdentifier;
@@ -67,11 +71,19 @@ function makeLoader() {
         try {
             if (sync) {
                 const output = swc.transformSync(source, programmaticOptions);
-                callback(null, output.code, output.map);
+                callback(
+                  null,
+                  output.code,
+                  parseMap ? JSON.parse(output.map) : output.map
+                );
             } else {
                 swc.transform(source, programmaticOptions).then(
                     output => {
-                        callback(null, output.code, output.map);
+                        callback(
+                          null,
+                          output.code, 
+                          parseMap ? JSON.parse(output.map) : output.map
+                        );
                     },
                     err => {
                         callback(err);
