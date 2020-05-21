@@ -2,7 +2,7 @@ const loaderUtils = require("loader-utils");
 const swc = require("@swc/core");
 
 function makeLoader() {
-    return function(source, inputSourceMap) {
+    return function (source, inputSourceMap) {
         // Make the loader async
         const callback = this.async();
         const filename = this.resourcePath;
@@ -17,7 +17,7 @@ function makeLoader() {
             !Object.prototype.hasOwnProperty.call(loaderOptions, "sourceMaps")
         ) {
             loaderOptions = Object.assign({}, loaderOptions, {
-                sourceMaps: loaderOptions.sourceMap
+                sourceMaps: loaderOptions.sourceMap,
             });
             delete loaderOptions.sourceMap;
         }
@@ -40,7 +40,7 @@ function makeLoader() {
             // Ensure that Webpack will get a full absolute path in the sourcemap
             // so that it can properly map the module back to its internal cached
             // modules.
-            sourceFileName: filename
+            sourceFileName: filename,
         });
         if (!programmaticOptions.inputSourceMap) {
             delete programmaticOptions.inputSourceMap;
@@ -72,20 +72,21 @@ function makeLoader() {
             if (sync) {
                 const output = swc.transformSync(source, programmaticOptions);
                 callback(
-                  null,
-                  output.code,
-                  parseMap ? JSON.parse(output.map) : output.map
+                    null,
+                    output.code,
+                    parseMap ? JSON.parse(output.map) : output.map
                 );
             } else {
                 swc.transform(source, programmaticOptions).then(
-                    output => {
+                    (output) => {
+                        console.log(output);
                         callback(
-                          null,
-                          output.code, 
-                          parseMap ? JSON.parse(output.map) : output.map
+                            null,
+                            output.code,
+                            parseMap ? JSON.parse(output.map) : output.map
                         );
                     },
-                    err => {
+                    (err) => {
                         callback(err);
                     }
                 );
