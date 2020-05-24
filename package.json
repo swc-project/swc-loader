@@ -11,11 +11,11 @@
         "webpack": "^4.28.3"
     },
     "peerDependencies": {
-        "@swc/core": "^1.0.29",
+        "@swc/core": "^1.1.48",
         "webpack": ">=2"
     },
     "dependencies": {
-        "@swc/core": "^1.1.37",
+        "@swc/core": "^1.1.48",
         "loader-utils": "^2.0.0"
     }
 }
