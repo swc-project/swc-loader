@@ -79,7 +79,6 @@ function makeLoader() {
             } else {
                 swc.transform(source, programmaticOptions).then(
                     (output) => {
-                        console.log(output);
                         callback(
                             null,
                             output.code,
