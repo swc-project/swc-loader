@@ -58,6 +58,13 @@ function makeLoader() {
         delete programmaticOptions.cacheCompression;
         delete programmaticOptions.metadataSubscribers;
 
+        // auto detect development mode
+        if (this.mode && programmaticOptions.jsc && programmaticOptions.jsc.transform 
+            && programmaticOptions.jsc.transform.react && 
+            !Object.prototype.hasOwnProperty.call(programmaticOptions.jsc.transform.react, "development")) {
+                programmaticOptions.jsc.transform.react.development = this.mode === 'development'
+        }
+
         if (programmaticOptions.sourceMaps === "inline") {
             // Babel has this weird behavior where if you set "inline", we
             // inline the sourcemap, and set 'result.map = null'. This results
