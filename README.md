@@ -72,3 +72,6 @@ module: {
     ];
 }
 ```
+
+## Configuration Reference
+Refer https://swc.rs/docs/configuring-swc
