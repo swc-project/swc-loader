@@ -8,14 +8,14 @@
     "license": "MIT",
     "private": false,
     "devDependencies": {
-        "webpack": "^4.28.3"
+        "webpack": "^4.28.3",
+        "@swc/core": "^1.2.52"
     },
     "peerDependencies": {
-        "@swc/core": "^1.2.52",
+        "@swc/core": "^1.2.0",
         "webpack": ">=2"
     },
     "dependencies": {
-        "@swc/core": "^1.2.52",
         "loader-utils": "^2.0.0"
     }
 }
