@@ -12,7 +12,7 @@
         "@swc/core": "^1.2.52"
     },
     "peerDependencies": {
-        "@swc/core": "^1.2.0",
+        "@swc/core": "^1.2.52",
         "webpack": ">=2"
     },
     "dependencies": {
