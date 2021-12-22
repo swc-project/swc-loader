@@ -6,13 +6,13 @@ function makeLoader() {
         // Make the loader async
         const callback = this.async();
         const filename = this.resourcePath;
+        // Simply deep copy once to prevent the injection from being emptied
+        let loaderOptions = JSON.parse(JSON.stringify(loaderUtils.getOptions(this) || {}));
 
-        let loaderOptions = loaderUtils.getOptions(this) || {};
-
-        const { jsc } = loaderOptions
+        const { jsc } = loaderUtils.getOptions(this) || {};
         // Inject JSX helper before JSX and TSX files are processed by swc
         if (jsc.transform.react.jsxInject && /\.(?:j|t)sx\b/.test(filename)) {
-            source = jsxInject + ';' + source
+            source = jsc.transform.react.jsxInject + ';' + source
         }
 
         // Standardize on 'sourceMaps' as the key passed through to Webpack, so that
