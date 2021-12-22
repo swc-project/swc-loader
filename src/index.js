@@ -9,6 +9,12 @@ function makeLoader() {
 
         let loaderOptions = loaderUtils.getOptions(this) || {};
 
+        const { jsc } = loaderOptions
+        // Inject JSX helper before JSX and TSX files are processed by swc
+        if (jsc.transform.react.jsxInject && /\.(?:j|t)sx\b/.test(filename)) {
+            source = jsxInject + ';' + source
+        }
+
         // Standardize on 'sourceMaps' as the key passed through to Webpack, so that
         // users may safely use either one alongside our default use of
         // 'this.sourceMap' below without getting error about conflicting aliases.
@@ -57,12 +63,13 @@ function makeLoader() {
         delete programmaticOptions.cacheIdentifier;
         delete programmaticOptions.cacheCompression;
         delete programmaticOptions.metadataSubscribers;
+        delete programmaticOptions.jsc.transform.react.jsxInject;
 
         // auto detect development mode
-        if (this.mode && programmaticOptions.jsc && programmaticOptions.jsc.transform 
-            && programmaticOptions.jsc.transform.react && 
+        if (this.mode && programmaticOptions.jsc && programmaticOptions.jsc.transform
+            && programmaticOptions.jsc.transform.react &&
             !Object.prototype.hasOwnProperty.call(programmaticOptions.jsc.transform.react, "development")) {
-                programmaticOptions.jsc.transform.react.development = this.mode === 'development'
+            programmaticOptions.jsc.transform.react.development = this.mode === 'development'
         }
 
         if (programmaticOptions.sourceMaps === "inline") {

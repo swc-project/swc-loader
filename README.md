@@ -72,6 +72,36 @@ module: {
     ];
 }
 ```
+If you need to `customize a JSX helper`, you need to look like the example below, with vue3 as an example
+
+```js
+module: {
+    rules: [
+        {
+            test: /\.(tsx|jsx)$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: "swc-loader",
+                options: {
+                    jsc: {
+                        parser: {
+                            syntax: "typescript"
+                        },
+                        transform: {
+                            react: {
+                                /** Use custom rendering functions, If you use the example of vue, it is */
+                                pragma: 'h',
+                                pragmaFrag: 'Fragment',
+                                jsxInject:`import { h, Fragment } from 'vue'`
+                            }
+                        },
+                    }
+                }
+            }
+        }
+    ];
+}
+```
 
 ## Configuration Reference
 Refer https://swc.rs/docs/configuring-swc
