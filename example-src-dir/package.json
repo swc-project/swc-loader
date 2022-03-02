@@ -8,12 +8,12 @@
         "start": "ecstatic build --port 3000"
     },
     "dependencies": {
-        "react": "^16.7.0",
-        "react-dom": "^16.7.0"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
     },
     "devDependencies": {
         "ecstatic": "^3.3.0",
-        "webpack": "^4.28.4",
-        "webpack-cli": "^3.2.1"
+        "webpack": "^5.69.1",
+        "webpack-cli": "^4.9.2"
     }
 }
