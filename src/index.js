@@ -1,4 +1,3 @@
-const loaderUtils = require("loader-utils");
 const swc = require("@swc/core");
 
 function makeLoader() {
@@ -7,7 +6,7 @@ function makeLoader() {
         const callback = this.async();
         const filename = this.resourcePath;
 
-        let loaderOptions = loaderUtils.getOptions(this) || {};
+        let loaderOptions = this.getOptions() || {};
 
         // Standardize on 'sourceMaps' as the key passed through to Webpack, so that
         // users may safely use either one alongside our default use of
