@@ -1,6 +1,6 @@
 {
     "name": "swc-loader",
-    "version": "0.1.16",
+    "version": "0.2.0",
     "description": "Webpack plugin for swc",
     "main": "src/index.js",
     "repository": "https://github.com/swc-project/swc-loader",
