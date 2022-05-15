@@ -21,7 +21,7 @@ function makeLoader() {
             delete loaderOptions.sourceMap;
         }
 
-        if (inputSourceMap) {
+        if (inputSourceMap && typeof inputSourceMap === "object") {
             inputSourceMap = JSON.stringify(inputSourceMap);
         }
 
