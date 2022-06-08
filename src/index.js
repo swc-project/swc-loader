@@ -6,7 +6,7 @@ function makeLoader() {
         const callback = this.async();
         const filename = this.resourcePath;
 
-        let loaderOptions = this.getOptions() || {};
+        let loaderOptions = (this.getOptions ? this.getOptions() : require('loader-utils').getOptions(this)) || {};
 
         // Standardize on 'sourceMaps' as the key passed through to Webpack, so that
         // users may safely use either one alongside our default use of
@@ -58,10 +58,10 @@ function makeLoader() {
         delete programmaticOptions.metadataSubscribers;
 
         // auto detect development mode
-        if (this.mode && programmaticOptions.jsc && programmaticOptions.jsc.transform 
-            && programmaticOptions.jsc.transform.react && 
+        if (this.mode && programmaticOptions.jsc && programmaticOptions.jsc.transform
+            && programmaticOptions.jsc.transform.react &&
             !Object.prototype.hasOwnProperty.call(programmaticOptions.jsc.transform.react, "development")) {
-                programmaticOptions.jsc.transform.react.development = this.mode === 'development'
+            programmaticOptions.jsc.transform.react.development = this.mode === 'development'
         }
 
         if (programmaticOptions.sourceMaps === "inline") {
