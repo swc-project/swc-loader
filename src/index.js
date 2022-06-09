@@ -6,7 +6,7 @@ function makeLoader() {
         const callback = this.async();
         const filename = this.resourcePath;
 
-        let loaderOptions = (this.getOptions ? this.getOptions() : require('loader-utils').getOptions(this)) || {};
+        let loaderOptions = (typeof this.getOptions === 'function' ? this.getOptions() : require('loader-utils').getOptions(this)) || {};
 
         // Standardize on 'sourceMaps' as the key passed through to Webpack, so that
         // users may safely use either one alongside our default use of
