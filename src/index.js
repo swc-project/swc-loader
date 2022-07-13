@@ -74,6 +74,13 @@ function makeLoader() {
             programmaticOptions.sourceMaps = true;
         }
 
+        if (programmaticOptions.plugin) {
+            const passInPlugin = programmaticOptions.plugin;
+            programmaticOptions.plugin = (m) => {
+                return passInPlugin(m, this);
+            };
+        }
+
         try {
             if (sync) {
                 const output = swc.transformSync(source, programmaticOptions);
